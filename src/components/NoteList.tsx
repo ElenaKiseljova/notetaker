@@ -7,7 +7,7 @@ type TNoteListProps = {
 
 const NoteList: React.FC<TNoteListProps> = ({notes, onDelete}) => {
   if (typeof notes === 'undefined') {
-    return '';
+    return <span></span>;
   }
 
   return (

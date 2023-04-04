@@ -1,12 +1,10 @@
-import React from 'react';
-
 import { Header } from '~/components/layout/Header';
 
-type LayoutProps = {
-  children?: React.ReactNode,
+type TLayoutProps = {
+  children?: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({children}) => {
+const Layout: React.FC<TLayoutProps> = ({children}) => {
   return (
     <>
       <Header />

@@ -18,5 +18,20 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  /**
+   * Images hosts
+   *
+   * @see https://nextjs.org/docs/messages/next-image-unconfigured-host
+   */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/u/**",
+      },
+    ],
+  },
 };
 export default config;

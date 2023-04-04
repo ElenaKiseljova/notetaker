@@ -13,12 +13,12 @@ export const Header: React.FC = () => {
       <div className="flex-none gap-2">
         <div className=" dropdown dropdown-end">
           {sessionData?.user ? (
-            <label 
+            <div 
+              className=" btn btn-ghost avatar" 
               tabIndex={0} 
-              className=" btn btn-ghost btn-circle avatar"
-              onClick={() => void signOut()}
+              onClick={() => void signOut()}                        
             >
-              <div className=" w-10 rounded-full">
+              <div className=" w-10 rounded-full mr-3">
                 {/* <Image 
                   width={40}
                   height={40}
@@ -30,9 +30,11 @@ export const Header: React.FC = () => {
                   height={40}
                   src={sessionData?.user?.image ?? ''}
                   alt={sessionData?.user?.name ?? ''}  
-                />
+                />                
               </div>
-            </label>
+              
+              <span>Sign out</span>
+            </div>
           ) : (
             <button 
               className=" btn btn-ghost rounded-btn"

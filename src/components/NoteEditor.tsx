@@ -52,8 +52,8 @@ const NoteEditor: React.FC<TNoteEditorProps> = ({onSave}) => {
           <button 
             className=" btn btn-primary"
             disabled={
-              title.trim().length === 0 ||
-              code.trim().length === 0
+              title.trim().length < 3 ||
+              code.trim().length < 3
             }
             onClick={() => {
               onSave({
@@ -65,7 +65,7 @@ const NoteEditor: React.FC<TNoteEditorProps> = ({onSave}) => {
               setTitle('');
             }}
           >
-            Save
+            Save note
           </button>
         </div>
       </div>

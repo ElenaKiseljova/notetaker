@@ -1,6 +1,6 @@
-import { z } from "zod";
+import { z } from 'zod';
 
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, protectedProcedure } from '~/server/api/trpc';
 
 export const topicRouter = createTRPCRouter({
   getAll: protectedProcedure.query(({ ctx }) => {
@@ -19,5 +19,26 @@ export const topicRouter = createTRPCRouter({
           userId: ctx.session.user.id,
         },
       });
+    }),
+  delete: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const deleteNotes = ctx.prisma.note.deleteMany({
+        where: {
+          topicId: input.id,
+        },
+      });
+
+      const deleteTopic = ctx.prisma.topic.delete({
+        where: {
+          id: input.id,
+        },
+      });
+
+      return ctx.prisma.$transaction([deleteNotes, deleteTopic]);
     }),
 });

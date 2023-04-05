@@ -88,7 +88,7 @@ const Content: React.FC = () => {
 
         <div className=" divider"></div>
 
-        <div className=" tooltip tooltip-right" data-tip="Press Enter to save topic">
+        <div className=" tooltip tooltip-bottom" data-tip="Press Enter to save topic">
           <input 
             type="text" 
             placeholder="New Topic" 

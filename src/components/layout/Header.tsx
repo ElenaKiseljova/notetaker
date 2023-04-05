@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className="navbar bg-primary text-primary-content">
-      <div className="flex-1 pl-5 text-3xl font-bold">
+      <div className="flex-1 pl-5 text-1xl sm:text-2xl md:text-3xl font-bold">
         {sessionData?.user?.name ? `Notes for ${sessionData.user.name}` : ''}
       </div>
       <div className="flex-none gap-2">

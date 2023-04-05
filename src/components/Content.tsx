@@ -66,7 +66,7 @@ const Content: React.FC = () => {
   };
 
   return (
-    <div className=" mx-5 mt-5 grid grid-cols-4 gap-2">
+    <div className=" w-screen mx-5 mt-5 grid grid-cols-1 md:grid-cols-4 gap-2">
       <div className=" px-2">
         <ul className="menu rounded-box w-full bg-base-100 p-2">
           {topics?.map((topic) => (
@@ -88,20 +88,24 @@ const Content: React.FC = () => {
 
         <div className=" divider"></div>
 
-        <input 
-          type="text" 
-          placeholder="New Topic" 
-          className="input input-bordered input-sm w-full" 
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              createTopic.mutate({
-                title: e.currentTarget.value,
-              });
+        <div className=" tooltip tooltip-right" data-tip="Press Enter to save topic">
+          <input 
+            type="text" 
+            placeholder="New Topic" 
+            className="input input-bordered input-sm w-full" 
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                createTopic.mutate({
+                  title: e.currentTarget.value,
+                });
 
-              e.currentTarget.value = '';
-            }
-          }}
-        />
+                e.currentTarget.value = '';
+              }
+            }}
+          />
+
+          <p className=" sm:hidden mt-2 text-gray-400 text-xs text-left">Press Enter to save topic</p>
+        </div>        
       </div>
       <div className=" col-span-3">
         <NoteList notes={notes} onDelete={deleteNoteHandler} />

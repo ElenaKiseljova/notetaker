@@ -25,9 +25,13 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className=" lg:w-[27vw] w-[300px] h-fit text-5xl font-semibold text-white text-center">
-      Please sign in if You want to use Notetaker
-    </div>
+    <>
+      {head}
+
+      <div className="flex items-center justify-center text-center w-[790px] max-w-[90vw] h-[70vh] bg-[url('/img/note-paper-1236797.jpg')] bg-no-repeat bg-center bg-contain">
+        <span className=" w-80 max-w-[60%] p-2 text-2xl sm:text-3xl md:text-4xl text-white font-semibold -skew-y-6 skew-x-6">Please sign in if You want to use Notetaker</span>
+      </div>
+    </>    
   )
 };
 

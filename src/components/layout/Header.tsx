@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
           ) : (
             <button 
               className=" btn btn-ghost rounded-btn"
-              onClick={() => void signIn()}
+              onClick={() => void signIn('google')}
             >
               Sign in
             </button>

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import { type RouterOutputs } from '~/utils/api';
+import type { RouterOutputs } from '~/utils/api';
 
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
-export type TNoteFull = RouterOutputs['note']['getAll'][0];
+type TNote = RouterOutputs['note']['getAll'][0];
 
 type TNoteCardProps = {
-  note: TNoteFull;
+  note: TNote;
   onDelete: () => void;
 }
 

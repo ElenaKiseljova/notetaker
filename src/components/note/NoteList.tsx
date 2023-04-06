@@ -1,7 +1,11 @@
-import NoteCard, { type TNoteFull } from '~/components/NoteCard';
+import type { RouterOutputs } from '~/utils/api';
+
+import NoteCard from '~/components/note/NoteCard';
+
+type TNote = RouterOutputs['note']['getAll'][0];
 
 type TNoteListProps = {
-  notes: TNoteFull[] | undefined;
+  notes: TNote[] | undefined;
   onDelete: (id: string) => void;
 }
 

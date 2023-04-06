@@ -4,6 +4,8 @@ import { SessionProvider } from "next-auth/react";
 
 import { api } from "~/utils/api";
 
+import { TopicContextProvider } from "~/store/topic";
+
 import "~/styles/globals.css";
 
 import Layout from "~/components/layout/Layout";
@@ -14,9 +16,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>      
+      <TopicContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>    
+      </TopicContextProvider>        
     </SessionProvider>
   );
 };

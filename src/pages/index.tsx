@@ -11,7 +11,9 @@ const Home: NextPage = () => {
   const head = <Head>
     <title>Notetaker</title>
     <meta name="description" content="Notetaker from https://www.youtube.com/watch?v=J1gzN1SAhyM&t=1314s" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </Head>;
 
   if (sessionData?.user) {

@@ -73,7 +73,7 @@ model Topic {
   title     String
   userId    String
   notes     Note[]
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Note {

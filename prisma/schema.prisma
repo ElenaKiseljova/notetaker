@@ -83,5 +83,5 @@ model Note {
   title     String
   content   String   @db.Text
   topicId   String
-  topic     Topic    @relation(fields: [topicId], references: [id])
+  topic     Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
 }

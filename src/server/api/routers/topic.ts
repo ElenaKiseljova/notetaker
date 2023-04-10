@@ -20,27 +20,7 @@ export const topicRouter = createTRPCRouter({
         },
       });
     }),
-  delete: protectedProcedure
-    .input(
-      z.object({
-        id: z.string(),
-      })
-    )
-    .mutation(async ({ ctx, input }) => {
-      const deleteNotes = ctx.prisma.note.deleteMany({
-        where: {
-          topicId: input.id,
-        },
-      });
-
-      const deleteTopic = ctx.prisma.topic.delete({
-        where: {
-          id: input.id,
-        },
-      });
-
-      return ctx.prisma.$transaction([deleteNotes, deleteTopic]);
-    }),
+  // Without Cascsde
   // delete: protectedProcedure
   //   .input(
   //     z.object({
@@ -48,10 +28,32 @@ export const topicRouter = createTRPCRouter({
   //     })
   //   )
   //   .mutation(async ({ ctx, input }) => {
-  //     return ctx.prisma.topic.delete({
+  //     const deleteNotes = ctx.prisma.note.deleteMany({
+  //       where: {
+  //         topicId: input.id,
+  //       },
+  //     });
+
+  //     const deleteTopic = ctx.prisma.topic.delete({
   //       where: {
   //         id: input.id,
   //       },
   //     });
+
+  //     return ctx.prisma.$transaction([deleteNotes, deleteTopic]);
   //   }),
+  // With Cascade
+  delete: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      return ctx.prisma.topic.delete({
+        where: {
+          id: input.id,
+        },
+      });
+    }),
 });
